@@ -54,21 +54,24 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
+
 struct FirstView: View{
-    @State private var firstItem: String = ""
+    @State var firstItem: String = ""
     var body: some View{
         ZStack{
             Color.red.ignoresSafeArea(edges: .top)
             VStack{
                 Text("To Do List").fontWeight(.bold).padding(.all).font(.title)
-                TextField("1st Item", text: $firstItem).textFieldStyle(.roundedBorder)
+                TextField("1st Item", text: $firstItem).padding(.horizontal).foregroundColor(Color.white)
+                
+                TextField("2nd Item", text: $firstItem).padding(.horizontal).foregroundColor(Color.white)
+                
                 Spacer()
-                
-                
             }
             
         }
     }
+    
 }
 
 struct SecondView: View{
