@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         TabView{
             FirstView().tabItem{
                 Spacer()
@@ -39,10 +40,10 @@ struct ContentView: View {
                 
             }
         }
-        .accentColor(Color.black)
+        .accentColor(Color.gray)
         .onAppear{
-            UITabBar.appearance().backgroundColor = UIColor.gray
-            UITabBar.appearance().unselectedItemTintColor = UIColor.blue
+            UITabBar.appearance().backgroundColor = UIColor.black
+            UITabBar.appearance().unselectedItemTintColor = UIColor.red
         }
     }
 }
@@ -54,11 +55,18 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct FirstView: View{
+    @State private var firstItem: String = ""
     var body: some View{
         ZStack{
             Color.red.ignoresSafeArea(edges: .top)
-            Text("To Do List").padding().font(.title)
-            Spacer()
+            VStack{
+                Text("To Do List").fontWeight(.bold).padding(.all).font(.title)
+                TextField("1st Item", text: $firstItem).textFieldStyle(.roundedBorder)
+                Spacer()
+                
+                
+            }
+            
         }
     }
 }
@@ -67,8 +75,11 @@ struct SecondView: View{
     var body: some View{
         ZStack{
             Color.blue.ignoresSafeArea(edges: .top)
-            Text("Due Dates").padding().font(.title)
-            Spacer()
+            VStack{
+                Text("Due Dates").fontWeight(.bold).padding(.all).font(.title)
+                Spacer()
+            }
+            
         }
     }
 }
@@ -76,8 +87,10 @@ struct ThirdView: View{
     var body: some View{
         ZStack{
             Color.green.ignoresSafeArea(edges: .top)
-            Text("Resolution").padding().font(.title)
-            Spacer()
+            VStack{
+                Text("Resolution").fontWeight(.bold).padding(.all).font(.title)
+                Spacer()
+            }
         }
     }
 }
@@ -86,8 +99,10 @@ struct FourthView: View{
     var body: some View{
         ZStack{
             Color.orange.ignoresSafeArea(edges: .top)
-            Text("Social").padding().font(.title)
-            Spacer()
+            VStack{
+                Text("Social").fontWeight(.bold).padding(.all).font(.title)
+                Spacer()
+            }
         }
     }
 }
@@ -95,8 +110,11 @@ struct FifthView: View{
     var body: some View{
         ZStack{
             Color.purple.ignoresSafeArea(edges: .top)
-            Text("Personal").padding().font(.title)
-            Spacer()
+            VStack{
+                Text("Personal").fontWeight(.bold).padding(.all).font(.title)
+                Spacer()
+            }
         }
     }
 }
+
